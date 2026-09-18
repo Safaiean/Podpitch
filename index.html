@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>PodPitch — Podcast outreach that gets you booked</title>
+<meta name="description" content="Find the right podcasts, write personalized pitches, send from your inbox, follow up automatically, and track replies — all in one workflow." />
+<style>
+:root{
+  --bg:#07110e;
+  --bg2:#0b1713;
+  --panel:#0f1f19;
+  --panel2:#12251e;
+  --ink:#f4f7f4;
+  --muted:#a8b7ae;
+  --line:rgba(255,255,255,.10);
+  --green:#86ffb4;
+  --green2:#2ee884;
+  --lime:#d7ff6f;
+  --cream:#f5f1e8;
+  --dark:#09100d;
+  --shadow:0 24px 80px rgba(0,0,0,.38);
+  --r:24px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(1000px 700px at 82% -5%,rgba(46,232,132,.18),transparent 55%),
+    radial-gradient(800px 540px at 5% 15%,rgba(215,255,111,.09),transparent 55%),
+    var(--bg);
+  color:var(--ink);
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height:1.5;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.container{width:min(1180px,calc(100% - 40px));margin:auto}
+.nav{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(18px);
+  background:rgba(7,17,14,.76);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.04em;font-size:22px}
+.logo-mark{
+  width:34px;height:34px;border-radius:11px;
+  background:linear-gradient(135deg,var(--green),var(--green2));
+  display:grid;place-items:center;color:var(--dark);font-weight:900;
+  box-shadow:0 0 0 6px rgba(134,255,180,.07);
+}
+.nav-links{display:flex;align-items:center;gap:28px;color:#d7e0da;font-size:14px}
+.nav-links a{opacity:.82}.nav-links a:hover{opacity:1}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  min-height:46px;padding:0 18px;border-radius:14px;border:1px solid var(--line);
+  font-weight:750;transition:.2s ease;cursor:pointer;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-ghost{background:rgba(255,255,255,.03)}
+.btn-primary{
+  color:#07110e;border-color:transparent;
+  background:linear-gradient(135deg,var(--green),var(--lime));
+  box-shadow:0 12px 34px rgba(134,255,180,.18);
+}
+.mobile-menu{display:none;background:none;border:0;color:white;font-size:25px}
+
+.hero{padding:86px 0 62px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:52px;align-items:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;
+  color:#dffbe9;background:rgba(134,255,180,.08);
+  border:1px solid rgba(134,255,180,.2);
+  padding:8px 12px;border-radius:999px;font-size:13px;font-weight:700;
+}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 16px var(--green)}
+h1{
+  margin:22px 0 18px;
+  font-size:clamp(52px,7vw,88px);
+  line-height:.94;
+  letter-spacing:-.066em;
+  max-width:840px;
+}
+.gradient-text{
+  background:linear-gradient(90deg,var(--cream),var(--green),var(--lime));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-copy{font-size:19px;color:var(--muted);max-width:650px;margin:0 0 28px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.micro{font-size:12px;color:#829087;margin-top:12px}
+.hero-proof{display:flex;align-items:center;gap:15px;margin-top:26px;color:#c9d5cd;font-size:13px}
+.avatars{display:flex}
+.avatar{
+  width:34px;height:34px;border-radius:50%;border:2px solid var(--bg);
+  margin-left:-7px;background:linear-gradient(135deg,#d4f5df,#779a86);color:#102117;
+  display:grid;place-items:center;font-size:11px;font-weight:900;
+}
+.avatar:first-child{margin-left:0}
+
+.app-window{
+  position:relative;padding:13px;border:1px solid rgba(255,255,255,.12);
+  border-radius:30px;background:rgba(255,255,255,.05);box-shadow:var(--shadow);
+  transform:perspective(1300px) rotateY(-3deg) rotateX(1deg);
+}
+.glow{
+  position:absolute;width:210px;height:210px;border-radius:50%;
+  filter:blur(70px);background:rgba(46,232,132,.28);right:-50px;top:-50px;pointer-events:none;
+}
+.app{
+  background:#f6f8f5;color:#102117;border-radius:20px;overflow:hidden;min-height:540px;
+}
+.app-top{height:56px;background:#fff;border-bottom:1px solid #dfe6e1;display:flex;align-items:center;padding:0 16px;gap:12px}
+.mini-logo{width:27px;height:27px;border-radius:8px;background:#0d2319;color:#8cffb3;display:grid;place-items:center;font-weight:900}
+.search{margin-left:auto;background:#f0f4f1;border:1px solid #dce5df;border-radius:9px;padding:8px 12px;color:#718078;font-size:11px;width:180px}
+.app-body{display:grid;grid-template-columns:155px 1fr;min-height:484px}
+.sidebar{background:#0d1b16;color:#cfe0d5;padding:18px 12px;font-size:11px}
+.side-label{font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:#6f897a;margin:13px 8px 7px}
+.side-item{padding:9px 10px;border-radius:9px;margin:2px 0}
+.side-item.active{background:#173428;color:#9effbd;font-weight:800}
+.main{padding:20px}
+.topline{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.title-sm{font-size:16px;font-weight:850}
+.status{font-size:10px;padding:5px 8px;border-radius:999px;background:#e1fae9;color:#176737;font-weight:800}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}
+.step{background:white;border:1px solid #dfe7e2;border-radius:11px;padding:10px}
+.step b{display:block;font-size:16px}.step span{font-size:9px;color:#6e7c74}
+.podcast-card{
+  display:grid;grid-template-columns:44px 1fr auto;gap:11px;align-items:center;
+  background:white;border:1px solid #dfe7e2;border-radius:13px;padding:11px;margin:8px 0;
+}
+.cover{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#173f2c,#80f3a8);position:relative}
+.cover:after{content:"◖◗";position:absolute;inset:0;display:grid;place-items:center;font-weight:900;color:white}
+.pc-title{font-size:11px;font-weight:850}.pc-sub{font-size:9px;color:#748179;margin-top:3px}
+.match{font-size:9px;padding:5px 7px;background:#edf9f0;color:#18713c;border-radius:8px;font-weight:800}
+.composer{
+  margin-top:14px;border-radius:13px;background:#0e2118;color:white;padding:13px;
+  position:relative;overflow:hidden;
+}
+.composer .tag{font-size:9px;color:#99b5a4}.composer p{font-size:10px;color:#d6e2da;margin:8px 0 0}
+.composer .send{position:absolute;right:10px;bottom:10px;font-size:9px;background:#8cffb3;color:#102117;font-weight:900;padding:7px 9px;border-radius:8px}
+
+.trust{padding:18px 0 70px}
+.trust-label{text-align:center;color:#718177;font-size:12px;text-transform:uppercase;letter-spacing:.15em;margin-bottom:20px}
+.logo-row{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.logo-pill{
+  height:62px;border:1px solid var(--line);border-radius:15px;
+  display:grid;place-items:center;color:#aab9af;font-size:13px;font-weight:800;background:rgba(255,255,255,.025)
+}
+
+.section{padding:96px 0}
+.section.light{background:var(--cream);color:#102117}
+.section h2{
+  font-size:clamp(39px,5vw,66px);letter-spacing:-.055em;line-height:1.02;margin:0 0 16px;
+}
+.lead{font-size:18px;max-width:680px;color:var(--muted);margin:0 0 34px}
+.light .lead{color:#5b6861}
+.kicker{font-size:12px;text-transform:uppercase;letter-spacing:.18em;color:var(--green2);font-weight:900;margin-bottom:13px}
+
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.metric{border:1px solid var(--line);border-radius:20px;padding:24px;background:rgba(255,255,255,.035)}
+.metric b{display:block;font-size:38px;letter-spacing:-.05em;color:var(--green)}
+.metric span{font-size:13px;color:#9eb0a5}
+.metric small{display:block;color:#67776d;margin-top:8px;font-size:10px}
+
+.personas{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+.persona{
+  border-radius:22px;padding:26px;background:white;border:1px solid #dfe3dc;min-height:280px;
+  box-shadow:0 10px 40px rgba(35,50,43,.06)
+}
+.persona .icon{font-size:24px;margin-bottom:35px}
+.persona h3{font-size:23px;letter-spacing:-.03em;margin:0 0 10px}
+.persona p{font-size:14px;color:#65716a}
+.persona .outcome{margin-top:26px;padding-top:16px;border-top:1px solid #edf0ec;font-weight:800;font-size:13px}
+
+.workflow{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:38px}
+.workflow-card{
+  border:1px solid var(--line);border-radius:25px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.025));
+  padding:30px;min-height:310px;position:relative;overflow:hidden;
+}
+.num{font-size:11px;color:#668074;font-weight:900;letter-spacing:.1em}
+.workflow-card h3{font-size:28px;letter-spacing:-.035em;margin:14px 0 10px}
+.workflow-card p{color:#9fb0a6;max-width:450px}
+.mini-ui{margin-top:22px;background:#f4f7f5;color:#112019;border-radius:14px;padding:14px}
+.query{padding:10px 12px;border:1px solid #dce4df;background:white;border-radius:9px;font-size:11px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
+.chip{font-size:9px;padding:5px 7px;border-radius:999px;background:#e3f7ea;color:#246941}
+.email-preview{font-size:10px;line-height:1.6}
+.highlight{background:#dff9e7;padding:1px 3px;border-radius:3px}
+.timeline{display:flex;align-items:center;gap:8px;margin-top:8px;font-size:9px}
+.timeline i{width:8px;height:8px;border-radius:50%;background:#42d97f}.timeline span{color:#718078}
+
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:35px}
+.compare-card{border-radius:24px;padding:28px}
+.before{background:#eeeae0}
+.after{background:#0c1d15;color:white}
+.compare-card h3{font-size:23px;margin:0 0 18px}
+.checklist{display:grid;gap:13px}
+.row{display:flex;gap:11px;align-items:flex-start;font-size:14px}
+.x,.check{width:22px;height:22px;border-radius:7px;display:grid;place-items:center;font-size:11px;flex:0 0 auto}
+.x{background:#ddd7ca;color:#887d6e}.check{background:#a6ffc3;color:#0d421f}
+
+.quote-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;margin-top:35px}
+.quote-main,.quote-side{border:1px solid var(--line);border-radius:25px;padding:30px;background:rgba(255,255,255,.035)}
+.quote-main blockquote{font-size:26px;line-height:1.35;letter-spacing:-.025em;margin:18px 0 28px}
+.person{display:flex;gap:12px;align-items:center}
+.person .pic{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#9fffc0,#275c41)}
+.person strong{display:block}.person span{font-size:12px;color:#82928a}
+.quote-side{display:flex;flex-direction:column;justify-content:space-between}
+.quote-side .big{font-size:64px;letter-spacing:-.07em;color:var(--lime);font-weight:900;line-height:1}
+
+.cta-wrap{padding:0 0 110px}
+.cta{
+  border-radius:30px;padding:64px;
+  background:linear-gradient(120deg,#d6ff78 0%,#8dffb4 48%,#5cf1af 100%);
+  color:#07110e;position:relative;overflow:hidden
+}
+.cta:after{
+  content:"";position:absolute;width:320px;height:320px;border-radius:50%;
+  border:1px solid rgba(7,17,14,.17);right:-70px;top:-80px;box-shadow:0 0 0 50px rgba(7,17,14,.025),0 0 0 100px rgba(7,17,14,.018)
+}
+.cta h2{max-width:760px;position:relative;z-index:1}
+.cta p{font-size:18px;max-width:650px;position:relative;z-index:1}
+.cta .actions{display:flex;gap:10px;margin-top:25px;position:relative;z-index:1}
+.btn-dark{background:#07110e;color:white;border-color:#07110e}
+.btn-outline-dark{border-color:rgba(7,17,14,.22);background:rgba(255,255,255,.3)}
+
+footer{padding:34px 0 50px;border-top:1px solid var(--line);color:#819087;font-size:12px}
+.footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+.reveal{opacity:0;transform:translateY(18px);transition:.7s ease}
+.reveal.show{opacity:1;transform:none}
+
+@media(max-width:960px){
+  .nav-links{display:none}.mobile-menu{display:block}.nav-actions .btn-ghost{display:none}
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+  .app-window{transform:none}
+  .metrics,.logo-row{grid-template-columns:repeat(2,1fr)}
+  .personas{grid-template-columns:1fr}
+  .workflow,.compare,.quote-grid{grid-template-columns:1fr}
+}
+@media(max-width:620px){
+  .container{width:min(100% - 24px,1180px)}
+  .hero{padding-top:58px}
+  h1{font-size:49px}
+  .hero-copy{font-size:16px}
+  .hero-actions .btn{width:100%}
+  .app-body{grid-template-columns:1fr}.sidebar{display:none}
+  .flow{grid-template-columns:repeat(2,1fr)}
+  .metrics{grid-template-columns:1fr 1fr}
+  .metric{padding:18px}.metric b{font-size:29px}
+  .logo-row{grid-template-columns:repeat(2,1fr)}
+  .section{padding:72px 0}
+  .cta{padding:38px 24px}
+  .cta .actions{flex-direction:column}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#"><span class="logo-mark">P</span>PodPitch</a>
+    <div class="nav-links">
+      <a href="#product">Product</a>
+      <a href="#for-who">Who it’s for</a>
+      <a href="#results">Results</a>
+      <a href="#how">How it works</a>
+    </div>
+    <div class="nav-actions">
+      <a class="btn btn-ghost" href="#product">See product</a>
+      <a class="btn btn-primary" href="#demo">Book a 15-min demo ↗</a>
+      <button class="mobile-menu" aria-label="Open menu">☰</button>
+    </div>
+  </div>
+</nav>
+
+<main>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow"><span class="dot"></span> Podcast outreach, without the outreach grind</div>
+      <h1>Get booked on the <span class="gradient-text">right podcasts.</span></h1>
+      <p class="hero-copy">
+        Find relevant shows, draft personalized pitches in your voice, send from your real inbox, follow up automatically, and track every reply — in one workflow.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#demo">Book a free 15-min demo ↗</a>
+        <a class="btn btn-ghost" href="#product">Watch how it works →</a>
+      </div>
+      <div class="micro">No spreadsheet hunting. No copy-paste pitches. You stay in control of every send.</div>
+      <div class="hero-proof">
+        <div class="avatars">
+          <div class="avatar">PR</div><div class="avatar">CM</div><div class="avatar">FO</div><div class="avatar">+3K</div>
+        </div>
+        <span>Built for PR teams, in-house comms & founders</span>
+      </div>
+    </div>
+
+    <div class="app-window reveal" id="product">
+      <div class="glow"></div>
+      <div class="app">
+        <div class="app-top">
+          <div class="mini-logo">P</div>
+          <strong style="font-size:12px">Campaign: AI founders</strong>
+          <div class="search">⌕ Search 3.85M podcasts</div>
+        </div>
+        <div class="app-body">
+          <aside class="sidebar">
+            <div class="side-label">Workspace</div>
+            <div class="side-item">Overview</div>
+            <div class="side-item active">Campaigns</div>
+            <div class="side-item">Podcasts</div>
+            <div class="side-item">Replies</div>
+            <div class="side-label">Manage</div>
+            <div class="side-item">Profiles</div>
+            <div class="side-item">Inboxes</div>
+            <div class="side-item">Analytics</div>
+          </aside>
+          <div class="main">
+            <div class="topline">
+              <div class="title-sm">Find shows worth pitching</div>
+              <div class="status">● Live campaign</div>
+            </div>
+            <div class="flow">
+              <div class="step"><b>186</b><span>matched shows</span></div>
+              <div class="step"><b>96%</b><span>contactable</span></div>
+              <div class="step"><b>41</b><span>pitches sent</span></div>
+              <div class="step"><b>9</b><span>positive replies</span></div>
+            </div>
+            <div class="podcast-card">
+              <div class="cover"></div>
+              <div><div class="pc-title">The SaaS Operator</div><div class="pc-sub">B2B SaaS · Founder stories · Weekly</div></div>
+              <div class="match">94% match</div>
+            </div>
+            <div class="podcast-card">
+              <div class="cover" style="background:linear-gradient(135deg,#513467,#e9a3ff)"></div>
+              <div><div class="pc-title">Growth Unpacked</div><div class="pc-sub">Growth · Startups · Marketing</div></div>
+              <div class="match">91% match</div>
+            </div>
+            <div class="composer">
+              <div class="tag">AI PERSONALIZED PITCH</div>
+              <p>Hi Maya — loved your recent episode on founder-led growth. I’m reaching out because Alex has built...</p>
+              <div class="send">Review & send →</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="container">
+    <div class="trust-label">One workflow instead of six disconnected tools</div>
+    <div class="logo-row">
+      <div class="logo-pill">SEARCH</div><div class="logo-pill">CONTACT DATA</div><div class="logo-pill">AI WRITING</div>
+      <div class="logo-pill">INBOX SEND</div><div class="logo-pill">FOLLOW-UP</div><div class="logo-pill">REPORTING</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="results">
+  <div class="container">
+    <div class="kicker">Proof before features</div>
+    <h2>Less busywork. More replies. More bookings.</h2>
+    <p class="lead">PodPitch’s current site reports hundreds of thousands of pitches sent, strong open and reply rates, and major time savings for teams.</p>
+    <div class="metrics">
+      <div class="metric reveal"><b>3.85M</b><span>podcasts in the database</span><small>Daily-updating directory</small></div>
+      <div class="metric reveal"><b>537K</b><span>pitches sent</span><small>Across PodPitch users</small></div>
+      <div class="metric reveal"><b>67%</b><span>reported open rate</span><small>Site-reported aggregate</small></div>
+      <div class="metric reveal"><b>23%</b><span>reported reply rate</span><small>Site-reported aggregate</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="section light" id="for-who">
+  <div class="container">
+    <div class="kicker">Different buyer. Different promise.</div>
+    <h2>One platform. Three reasons to buy.</h2>
+    <p class="lead">The homepage should stop blending every audience into one message. Give each visitor a fast path to the outcome they care about.</p>
+    <div class="personas">
+      <div class="persona reveal">
+        <div class="icon">◫</div>
+        <h3>PR agencies</h3>
+        <p>Pitch more clients without adding hours of research, list building, copy-paste, or spreadsheet reporting.</p>
+        <div class="outcome">Outcome → more client capacity per strategist</div>
+      </div>
+      <div class="persona reveal">
+        <div class="icon">◎</div>
+        <h3>In-house teams</h3>
+        <p>Turn executive expertise into a repeatable earned-media pipeline with one organized outreach system.</p>
+        <div class="outcome">Outcome → more coverage with less coordination</div>
+      </div>
+      <div class="persona reveal">
+        <div class="icon">↗</div>
+        <h3>Founders</h3>
+        <p>Reach podcasts your buyers already trust, without hiring an agency or spending your week doing manual outreach.</p>
+        <div class="outcome">Outcome → authority, reach & qualified demand</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how">
+  <div class="container">
+    <div class="kicker">The product story</div>
+    <h2>From “who should I pitch?” to “we got a yes.”</h2>
+    <p class="lead">A clearer homepage should show the workflow visually instead of making users read through a long list of isolated features.</p>
+
+    <div class="workflow">
+      <div class="workflow-card reveal">
+        <div class="num">01 — FIND</div>
+        <h3>Describe who you want to reach.</h3>
+        <p>Use keywords and instructions to surface relevant shows instead of manually searching directories.</p>
+        <div class="mini-ui">
+          <div class="query">“Find podcasts about AI infrastructure, SaaS and founder-led growth”</div>
+          <div class="chips"><span class="chip">B2B SaaS</span><span class="chip">Active shows</span><span class="chip">US + UK</span><span class="chip">Guest interviews</span></div>
+        </div>
+      </div>
+
+      <div class="workflow-card reveal">
+        <div class="num">02 — PERSONALIZE</div>
+        <h3>Turn research into a real pitch.</h3>
+        <p>Draft unique outreach in your voice, with context from the show — not a generic mail-merge paragraph.</p>
+        <div class="mini-ui email-preview">
+          <b>Subject:</b> idea for your next founder episode<br><br>
+          Hi Maya — your recent conversation on <span class="highlight">founder-led distribution</span> hit on something Alex has been testing for the last 18 months...
+        </div>
+      </div>
+
+      <div class="workflow-card reveal">
+        <div class="num">03 — SEND</div>
+        <h3>Send from your actual inbox.</h3>
+        <p>Review, schedule and send while keeping your team’s reputation and approval process intact.</p>
+        <div class="mini-ui">
+          <div class="timeline"><i></i><b>Pitch approved</b><span>Today · 9:42 AM</span></div>
+          <div class="timeline"><i></i><b>Sent from alex@company.com</b><span>Today · 10:00 AM</span></div>
+          <div class="timeline"><i style="background:#c8d5cd"></i><b>Follow-up scheduled</b><span>+4 days</span></div>
+        </div>
+      </div>
+
+      <div class="workflow-card reveal">
+        <div class="num">04 — WIN</div>
+        <h3>Know what turned into a reply.</h3>
+        <p>Track outreach and responses so the team can learn which shows, angles and profiles actually get traction.</p>
+        <div class="mini-ui">
+          <div style="display:flex;justify-content:space-between;font-size:11px"><b>Campaign performance</b><b style="color:#1c7844">↑ 22% reply rate</b></div>
+          <div style="height:8px;background:#e1e7e3;border-radius:99px;margin-top:16px;overflow:hidden"><div style="width:72%;height:100%;background:#49dc82"></div></div>
+          <div style="display:flex;justify-content:space-between;font-size:9px;color:#718078;margin-top:6px"><span>Sent</span><span>Replies</span><span>Bookings</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section light">
+  <div class="container">
+    <div class="kicker">The before / after</div>
+    <h2>Sell the transformation, not the feature list.</h2>
+    <div class="compare">
+      <div class="compare-card before reveal">
+        <h3>Without PodPitch</h3>
+        <div class="checklist">
+          <div class="row"><span class="x">×</span><span>Hours hunting for relevant podcasts and contacts</span></div>
+          <div class="row"><span class="x">×</span><span>Copy-pasting outreach into spreadsheets and inboxes</span></div>
+          <div class="row"><span class="x">×</span><span>Generic pitches that make the brand look automated</span></div>
+          <div class="row"><span class="x">×</span><span>Follow-ups forgotten when the week gets busy</span></div>
+          <div class="row"><span class="x">×</span><span>Hard to prove what actually drove a booking</span></div>
+        </div>
+      </div>
+      <div class="compare-card after reveal">
+        <h3>With PodPitch</h3>
+        <div class="checklist">
+          <div class="row"><span class="check">✓</span><span>Relevant shows surfaced from one searchable database</span></div>
+          <div class="row"><span class="check">✓</span><span>Personalized drafts created in your own tone</span></div>
+          <div class="row"><span class="check">✓</span><span>Outreach sent from the inbox you already use</span></div>
+          <div class="row"><span class="check">✓</span><span>Follow-ups and replies kept in one campaign view</span></div>
+          <div class="row"><span class="check">✓</span><span>Clear activity and outcome reporting for your team or client</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="kicker">Social proof</div>
+    <h2>Show the result. Then let customers explain the relief.</h2>
+    <div class="quote-grid">
+      <div class="quote-main reveal">
+        <div style="font-size:12px;color:#86ffb4;font-weight:800">PR AGENCY CUSTOMER</div>
+        <blockquote>“I was doing podcast outreach manually — lists, digging for contacts, writing every pitch. PodPitch gave us the speed without losing the personalization.”</blockquote>
+        <div class="person"><div class="pic"></div><div><strong>Customer story</strong><span>PR agency founder · representative layout</span></div></div>
+      </div>
+      <div class="quote-side reveal">
+        <div>
+          <div class="big">13h</div>
+          <p style="color:#9caf9f">Weekly time savings reported by many teams on the current PodPitch site.</p>
+        </div>
+        <div style="border-top:1px solid var(--line);padding-top:20px;color:#c8d6ce;font-size:13px">Make this proof clickable: customer → workflow → quantified result.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-wrap" id="demo">
+  <div class="container">
+    <div class="cta">
+      <div class="kicker" style="color:#184625">SEE IT ON YOUR OWN USE CASE</div>
+      <h2>Bring one client, founder or executive. Leave with a podcast list worth pitching.</h2>
+      <p>Make the demo feel like immediate value, not a sales trap. Show what PodPitch finds, drafts and tracks for a real profile.</p>
+      <div class="actions">
+        <a class="btn btn-dark" href="#">Book a free 15-min demo ↗</a>
+        <a class="btn btn-outline-dark" href="#product">See the workflow first →</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <div><strong style="color:white">PodPitch</strong> · Podcast outreach without the manual grind.</div>
+    <div>Concept redesign · Conversion-first homepage · 2026</div>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')})
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
