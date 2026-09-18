@@ -7,18 +7,18 @@
 <meta name="description" content="Find the right podcasts, write personalized pitches, send from your inbox, follow up automatically, and track replies — all in one workflow." />
 <style>
 :root{
-  --bg:#07110e;
-  --bg2:#0b1713;
-  --panel:#0f1f19;
-  --panel2:#12251e;
-  --ink:#f4f7f4;
-  --muted:#a8b7ae;
+  --bg:#120b26;
+  --bg2:#19102f;
+  --panel:#211541;
+  --panel2:#291a50;
+  --ink:#fbfaff;
+  --muted:#bdb6d3;
   --line:rgba(255,255,255,.10);
-  --green:#86ffb4;
-  --green2:#2ee884;
-  --lime:#d7ff6f;
-  --cream:#f5f1e8;
-  --dark:#09100d;
+  --green:#9b8cff;
+  --green2:#715cff;
+  --lime:#d8d1ff;
+  --cream:#f6f3ff;
+  --dark:#150d2d;
   --shadow:0 24px 80px rgba(0,0,0,.38);
   --r:24px;
 }
@@ -27,8 +27,8 @@ html{scroll-behavior:smooth}
 body{
   margin:0;
   background:
-    radial-gradient(1000px 700px at 82% -5%,rgba(46,232,132,.18),transparent 55%),
-    radial-gradient(800px 540px at 5% 15%,rgba(215,255,111,.09),transparent 55%),
+    radial-gradient(1000px 700px at 82% -5%,rgba(113,92,255,.22),transparent 55%),
+    radial-gradient(800px 540px at 5% 15%,rgba(216,209,255,.13),transparent 55%),
     var(--bg);
   color:var(--ink);
   font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -40,7 +40,7 @@ button{font:inherit}
 .nav{
   position:sticky;top:0;z-index:50;
   backdrop-filter:blur(18px);
-  background:rgba(7,17,14,.76);
+  background:rgba(18,11,38,.80);
   border-bottom:1px solid var(--line);
 }
 .nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
@@ -51,7 +51,7 @@ button{font:inherit}
   display:grid;place-items:center;color:var(--dark);font-weight:900;
   box-shadow:0 0 0 6px rgba(134,255,180,.07);
 }
-.nav-links{display:flex;align-items:center;gap:28px;color:#d7e0da;font-size:14px}
+.nav-links{display:flex;align-items:center;gap:28px;color:#e0daf1;font-size:14px}
 .nav-links a{opacity:.82}.nav-links a:hover{opacity:1}
 .nav-actions{display:flex;align-items:center;gap:10px}
 .btn{
@@ -62,9 +62,9 @@ button{font:inherit}
 .btn:hover{transform:translateY(-2px)}
 .btn-ghost{background:rgba(255,255,255,.03)}
 .btn-primary{
-  color:#07110e;border-color:transparent;
+  color:#150d2d;border-color:transparent;
   background:linear-gradient(135deg,var(--green),var(--lime));
-  box-shadow:0 12px 34px rgba(134,255,180,.18);
+  box-shadow:0 12px 34px rgba(113,92,255,.24);
 }
 .mobile-menu{display:none;background:none;border:0;color:white;font-size:25px}
 
@@ -72,8 +72,8 @@ button{font:inherit}
 .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:52px;align-items:center}
 .eyebrow{
   display:inline-flex;align-items:center;gap:9px;
-  color:#dffbe9;background:rgba(134,255,180,.08);
-  border:1px solid rgba(134,255,180,.2);
+  color:#f1eeff;background:rgba(155,140,255,.12);
+  border:1px solid rgba(155,140,255,.28);
   padding:8px 12px;border-radius:999px;font-size:13px;font-weight:700;
 }
 .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 16px var(--green)}
@@ -85,17 +85,17 @@ h1{
   max-width:840px;
 }
 .gradient-text{
-  background:linear-gradient(90deg,var(--cream),var(--green),var(--lime));
+  background:linear-gradient(90deg,#ffffff,#b7abff,#715cff);
   -webkit-background-clip:text;background-clip:text;color:transparent;
 }
 .hero-copy{font-size:19px;color:var(--muted);max-width:650px;margin:0 0 28px}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-.micro{font-size:12px;color:#829087;margin-top:12px}
-.hero-proof{display:flex;align-items:center;gap:15px;margin-top:26px;color:#c9d5cd;font-size:13px}
+.micro{font-size:12px;color:#9f96b8;margin-top:12px}
+.hero-proof{display:flex;align-items:center;gap:15px;margin-top:26px;color:#d8d2e8;font-size:13px}
 .avatars{display:flex}
 .avatar{
   width:34px;height:34px;border-radius:50%;border:2px solid var(--bg);
-  margin-left:-7px;background:linear-gradient(135deg,#d4f5df,#779a86);color:#102117;
+  margin-left:-7px;background:linear-gradient(135deg,#e8e3ff,#998be8);color:#1b1235;
   display:grid;place-items:center;font-size:11px;font-weight:900;
 }
 .avatar:first-child{margin-left:0}
@@ -107,40 +107,40 @@ h1{
 }
 .glow{
   position:absolute;width:210px;height:210px;border-radius:50%;
-  filter:blur(70px);background:rgba(46,232,132,.28);right:-50px;top:-50px;pointer-events:none;
+  filter:blur(70px);background:rgba(113,92,255,.34);right:-50px;top:-50px;pointer-events:none;
 }
 .app{
-  background:#f6f8f5;color:#102117;border-radius:20px;overflow:hidden;min-height:540px;
+  background:#faf9ff;color:#1b1235;border-radius:20px;overflow:hidden;min-height:540px;
 }
-.app-top{height:56px;background:#fff;border-bottom:1px solid #dfe6e1;display:flex;align-items:center;padding:0 16px;gap:12px}
-.mini-logo{width:27px;height:27px;border-radius:8px;background:#0d2319;color:#8cffb3;display:grid;place-items:center;font-weight:900}
-.search{margin-left:auto;background:#f0f4f1;border:1px solid #dce5df;border-radius:9px;padding:8px 12px;color:#718078;font-size:11px;width:180px}
+.app-top{height:56px;background:#fff;border-bottom:1px solid #e4dff0;display:flex;align-items:center;padding:0 16px;gap:12px}
+.mini-logo{width:27px;height:27px;border-radius:8px;background:#26184f;color:#b9afff;display:grid;place-items:center;font-weight:900}
+.search{margin-left:auto;background:#f4f1fb;border:1px solid #e4dff0;border-radius:9px;padding:8px 12px;color:#7f7696;font-size:11px;width:180px}
 .app-body{display:grid;grid-template-columns:155px 1fr;min-height:484px}
-.sidebar{background:#0d1b16;color:#cfe0d5;padding:18px 12px;font-size:11px}
-.side-label{font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:#6f897a;margin:13px 8px 7px}
+.sidebar{background:#1b1136;color:#ddd7ef;padding:18px 12px;font-size:11px}
+.side-label{font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:#948aa9;margin:13px 8px 7px}
 .side-item{padding:9px 10px;border-radius:9px;margin:2px 0}
-.side-item.active{background:#173428;color:#9effbd;font-weight:800}
+.side-item.active{background:#30215e;color:#c0b7ff;font-weight:800}
 .main{padding:20px}
 .topline{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
 .title-sm{font-size:16px;font-weight:850}
-.status{font-size:10px;padding:5px 8px;border-radius:999px;background:#e1fae9;color:#176737;font-weight:800}
+.status{font-size:10px;padding:5px 8px;border-radius:999px;background:#eeeaff;color:#5948d6;font-weight:800}
 .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}
-.step{background:white;border:1px solid #dfe7e2;border-radius:11px;padding:10px}
-.step b{display:block;font-size:16px}.step span{font-size:9px;color:#6e7c74}
+.step{background:white;border:1px solid #e5e0f0;border-radius:11px;padding:10px}
+.step b{display:block;font-size:16px}.step span{font-size:9px;color:#80778f}
 .podcast-card{
   display:grid;grid-template-columns:44px 1fr auto;gap:11px;align-items:center;
-  background:white;border:1px solid #dfe7e2;border-radius:13px;padding:11px;margin:8px 0;
+  background:white;border:1px solid #e5e0f0;border-radius:13px;padding:11px;margin:8px 0;
 }
-.cover{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#173f2c,#80f3a8);position:relative}
+.cover{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#4934a2,#a99bff);position:relative}
 .cover:after{content:"◖◗";position:absolute;inset:0;display:grid;place-items:center;font-weight:900;color:white}
-.pc-title{font-size:11px;font-weight:850}.pc-sub{font-size:9px;color:#748179;margin-top:3px}
-.match{font-size:9px;padding:5px 7px;background:#edf9f0;color:#18713c;border-radius:8px;font-weight:800}
+.pc-title{font-size:11px;font-weight:850}.pc-sub{font-size:9px;color:#817891;margin-top:3px}
+.match{font-size:9px;padding:5px 7px;background:#f0edff;color:#5d49dc;border-radius:8px;font-weight:800}
 .composer{
-  margin-top:14px;border-radius:13px;background:#0e2118;color:white;padding:13px;
+  margin-top:14px;border-radius:13px;background:#211542;color:white;padding:13px;
   position:relative;overflow:hidden;
 }
-.composer .tag{font-size:9px;color:#99b5a4}.composer p{font-size:10px;color:#d6e2da;margin:8px 0 0}
-.composer .send{position:absolute;right:10px;bottom:10px;font-size:9px;background:#8cffb3;color:#102117;font-weight:900;padding:7px 9px;border-radius:8px}
+.composer .tag{font-size:9px;color:#b8afd0}.composer p{font-size:10px;color:#e4def1;margin:8px 0 0}
+.composer .send{position:absolute;right:10px;bottom:10px;font-size:9px;background:#b9afff;color:#1b1235;font-weight:900;padding:7px 9px;border-radius:8px}
 
 .trust{padding:18px 0 70px}
 .trust-label{text-align:center;color:#718177;font-size:12px;text-transform:uppercase;letter-spacing:.15em;margin-bottom:20px}
@@ -151,7 +151,7 @@ h1{
 }
 
 .section{padding:96px 0}
-.section.light{background:var(--cream);color:#102117}
+.section.light{background:var(--cream);color:#1b1235}
 .section h2{
   font-size:clamp(39px,5vw,66px);letter-spacing:-.055em;line-height:1.02;margin:0 0 16px;
 }
@@ -180,54 +180,54 @@ h1{
   border:1px solid var(--line);border-radius:25px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.025));
   padding:30px;min-height:310px;position:relative;overflow:hidden;
 }
-.num{font-size:11px;color:#668074;font-weight:900;letter-spacing:.1em}
+.num{font-size:11px;color:#8f84aa;font-weight:900;letter-spacing:.1em}
 .workflow-card h3{font-size:28px;letter-spacing:-.035em;margin:14px 0 10px}
-.workflow-card p{color:#9fb0a6;max-width:450px}
-.mini-ui{margin-top:22px;background:#f4f7f5;color:#112019;border-radius:14px;padding:14px}
+.workflow-card p{color:#b8b0cc;max-width:450px}
+.mini-ui{margin-top:22px;background:#f4f7f5;color:#1c1334;border-radius:14px;padding:14px}
 .query{padding:10px 12px;border:1px solid #dce4df;background:white;border-radius:9px;font-size:11px}
 .chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
-.chip{font-size:9px;padding:5px 7px;border-radius:999px;background:#e3f7ea;color:#246941}
+.chip{font-size:9px;padding:5px 7px;border-radius:999px;background:#eeeaff;color:#604ed6}
 .email-preview{font-size:10px;line-height:1.6}
-.highlight{background:#dff9e7;padding:1px 3px;border-radius:3px}
+.highlight{background:#eeeaff;padding:1px 3px;border-radius:3px}
 .timeline{display:flex;align-items:center;gap:8px;margin-top:8px;font-size:9px}
-.timeline i{width:8px;height:8px;border-radius:50%;background:#42d97f}.timeline span{color:#718078}
+.timeline i{width:8px;height:8px;border-radius:50%;background:#715cff}.timeline span{color:#7f7696}
 
 .compare{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:35px}
 .compare-card{border-radius:24px;padding:28px}
-.before{background:#eeeae0}
-.after{background:#0c1d15;color:white}
+.before{background:#efecf8}
+.after{background:#211542;color:white}
 .compare-card h3{font-size:23px;margin:0 0 18px}
 .checklist{display:grid;gap:13px}
 .row{display:flex;gap:11px;align-items:flex-start;font-size:14px}
 .x,.check{width:22px;height:22px;border-radius:7px;display:grid;place-items:center;font-size:11px;flex:0 0 auto}
-.x{background:#ddd7ca;color:#887d6e}.check{background:#a6ffc3;color:#0d421f}
+.x{background:#ddd7ea;color:#7e748f}.check{background:#bfb4ff;color:#2d1b6b}
 
 .quote-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;margin-top:35px}
 .quote-main,.quote-side{border:1px solid var(--line);border-radius:25px;padding:30px;background:rgba(255,255,255,.035)}
 .quote-main blockquote{font-size:26px;line-height:1.35;letter-spacing:-.025em;margin:18px 0 28px}
 .person{display:flex;gap:12px;align-items:center}
-.person .pic{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#9fffc0,#275c41)}
-.person strong{display:block}.person span{font-size:12px;color:#82928a}
+.person .pic{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#c7c0ff,#5b45c7)}
+.person strong{display:block}.person span{font-size:12px;color:#958ba8}
 .quote-side{display:flex;flex-direction:column;justify-content:space-between}
 .quote-side .big{font-size:64px;letter-spacing:-.07em;color:var(--lime);font-weight:900;line-height:1}
 
 .cta-wrap{padding:0 0 110px}
 .cta{
   border-radius:30px;padding:64px;
-  background:linear-gradient(120deg,#d6ff78 0%,#8dffb4 48%,#5cf1af 100%);
-  color:#07110e;position:relative;overflow:hidden
+  background:linear-gradient(120deg,#ded8ff 0%,#ad9fff 48%,#715cff 100%);
+  color:#150d2d;position:relative;overflow:hidden
 }
 .cta:after{
   content:"";position:absolute;width:320px;height:320px;border-radius:50%;
-  border:1px solid rgba(7,17,14,.17);right:-70px;top:-80px;box-shadow:0 0 0 50px rgba(7,17,14,.025),0 0 0 100px rgba(7,17,14,.018)
+  border:1px solid rgba(21,13,45,.18);right:-70px;top:-80px;box-shadow:0 0 0 50px rgba(21,13,45,.035),0 0 0 100px rgba(21,13,45,.025)
 }
 .cta h2{max-width:760px;position:relative;z-index:1}
 .cta p{font-size:18px;max-width:650px;position:relative;z-index:1}
 .cta .actions{display:flex;gap:10px;margin-top:25px;position:relative;z-index:1}
-.btn-dark{background:#07110e;color:white;border-color:#07110e}
-.btn-outline-dark{border-color:rgba(7,17,14,.22);background:rgba(255,255,255,.3)}
+.btn-dark{background:#150d2d;color:white;border-color:#150d2d}
+.btn-outline-dark{border-color:rgba(21,13,45,.24);background:rgba(255,255,255,.3)}
 
-footer{padding:34px 0 50px;border-top:1px solid var(--line);color:#819087;font-size:12px}
+footer{padding:34px 0 50px;border-top:1px solid var(--line);color:#9d94ad;font-size:12px}
 .footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 .reveal{opacity:0;transform:translateY(18px);transition:.7s ease}
@@ -446,9 +446,9 @@ footer{padding:34px 0 50px;border-top:1px solid var(--line);color:#819087;font-s
         <h3>Know what turned into a reply.</h3>
         <p>Track outreach and responses so the team can learn which shows, angles and profiles actually get traction.</p>
         <div class="mini-ui">
-          <div style="display:flex;justify-content:space-between;font-size:11px"><b>Campaign performance</b><b style="color:#1c7844">↑ 22% reply rate</b></div>
-          <div style="height:8px;background:#e1e7e3;border-radius:99px;margin-top:16px;overflow:hidden"><div style="width:72%;height:100%;background:#49dc82"></div></div>
-          <div style="display:flex;justify-content:space-between;font-size:9px;color:#718078;margin-top:6px"><span>Sent</span><span>Replies</span><span>Bookings</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:11px"><b>Campaign performance</b><b style="color:#604ed6">↑ 22% reply rate</b></div>
+          <div style="height:8px;background:#e1e7e3;border-radius:99px;margin-top:16px;overflow:hidden"><div style="width:72%;height:100%;background:#715cff"></div></div>
+          <div style="display:flex;justify-content:space-between;font-size:9px;color:#7f7696;margin-top:6px"><span>Sent</span><span>Replies</span><span>Bookings</span></div>
         </div>
       </div>
     </div>
@@ -490,14 +490,14 @@ footer{padding:34px 0 50px;border-top:1px solid var(--line);color:#819087;font-s
     <h2>Show the result. Then let customers explain the relief.</h2>
     <div class="quote-grid">
       <div class="quote-main reveal">
-        <div style="font-size:12px;color:#86ffb4;font-weight:800">PR AGENCY CUSTOMER</div>
+        <div style="font-size:12px;color:#9b8cff;font-weight:800">PR AGENCY CUSTOMER</div>
         <blockquote>“I was doing podcast outreach manually — lists, digging for contacts, writing every pitch. PodPitch gave us the speed without losing the personalization.”</blockquote>
         <div class="person"><div class="pic"></div><div><strong>Customer story</strong><span>PR agency founder · representative layout</span></div></div>
       </div>
       <div class="quote-side reveal">
         <div>
           <div class="big">13h</div>
-          <p style="color:#9caf9f">Weekly time savings reported by many teams on the current PodPitch site.</p>
+          <p style="color:#aaa1bb">Weekly time savings reported by many teams on the current PodPitch site.</p>
         </div>
         <div style="border-top:1px solid var(--line);padding-top:20px;color:#c8d6ce;font-size:13px">Make this proof clickable: customer → workflow → quantified result.</div>
       </div>
@@ -508,7 +508,7 @@ footer{padding:34px 0 50px;border-top:1px solid var(--line);color:#819087;font-s
 <section class="cta-wrap" id="demo">
   <div class="container">
     <div class="cta">
-      <div class="kicker" style="color:#184625">SEE IT ON YOUR OWN USE CASE</div>
+      <div class="kicker" style="color:#4d3ab4">SEE IT ON YOUR OWN USE CASE</div>
       <h2>Bring one client, founder or executive. Leave with a podcast list worth pitching.</h2>
       <p>Make the demo feel like immediate value, not a sales trap. Show what PodPitch finds, drafts and tracks for a real profile.</p>
       <div class="actions">
