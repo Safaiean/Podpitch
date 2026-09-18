@@ -212,20 +212,148 @@ h1{
 .quote-side .big{font-size:64px;letter-spacing:-.07em;color:var(--lime);font-weight:900;line-height:1}
 
 .cta-wrap{padding:0 0 110px}
-.cta{
-  border-radius:30px;padding:64px;
-  background:linear-gradient(120deg,#ded8ff 0%,#ad9fff 48%,#715cff 100%);
-  color:#150d2d;position:relative;overflow:hidden
+.demo-shell{
+  border-radius:32px;
+  background:linear-gradient(135deg,#ded8ff 0%,#b7abff 45%,#715cff 100%);
+  padding:18px;
+  box-shadow:0 32px 90px rgba(80,56,185,.28);
 }
-.cta:after{
-  content:"";position:absolute;width:320px;height:320px;border-radius:50%;
-  border:1px solid rgba(21,13,45,.18);right:-70px;top:-80px;box-shadow:0 0 0 50px rgba(21,13,45,.035),0 0 0 100px rgba(21,13,45,.025)
+.demo-grid{
+  display:grid;
+  grid-template-columns:1.02fr .98fr;
+  gap:18px;
+  align-items:stretch;
 }
-.cta h2{max-width:760px;position:relative;z-index:1}
-.cta p{font-size:18px;max-width:650px;position:relative;z-index:1}
-.cta .actions{display:flex;gap:10px;margin-top:25px;position:relative;z-index:1}
-.btn-dark{background:#150d2d;color:white;border-color:#150d2d}
-.btn-outline-dark{border-color:rgba(21,13,45,.24);background:rgba(255,255,255,.3)}
+.demo-copy{
+  padding:52px 46px;
+  color:#150d2d;
+  position:relative;
+  overflow:hidden;
+  min-height:610px;
+}
+.demo-copy:after{
+  content:"";
+  position:absolute;
+  width:360px;height:360px;border-radius:50%;
+  border:1px solid rgba(21,13,45,.16);
+  right:-150px;bottom:-130px;
+  box-shadow:0 0 0 52px rgba(21,13,45,.035),0 0 0 104px rgba(21,13,45,.02);
+}
+.demo-copy h2{
+  font-size:clamp(42px,5vw,66px);
+  letter-spacing:-.055em;
+  line-height:1;
+  margin:14px 0 18px;
+  max-width:650px;
+  position:relative;
+  z-index:1;
+}
+.demo-copy>p{font-size:18px;max-width:590px;position:relative;z-index:1}
+.demo-points{
+  display:grid;
+  gap:13px;
+  margin-top:34px;
+  max-width:560px;
+  position:relative;
+  z-index:1;
+}
+.demo-point{display:flex;gap:12px;align-items:flex-start;font-size:14px;font-weight:750}
+.demo-point i{
+  width:25px;height:25px;border-radius:8px;
+  background:#150d2d;color:white;
+  display:grid;place-items:center;
+  font-style:normal;font-size:11px;flex:0 0 auto;
+}
+.demo-note{
+  display:flex;gap:11px;align-items:center;
+  margin-top:36px;padding-top:24px;
+  border-top:1px solid rgba(21,13,45,.14);
+  font-size:12px;font-weight:800;position:relative;z-index:1
+}
+.demo-note span{opacity:.7}
+
+.form-card{
+  background:#fff;
+  color:#1b1235;
+  border-radius:24px;
+  padding:30px;
+  box-shadow:0 18px 55px rgba(36,20,88,.16);
+  min-height:610px;
+  display:flex;
+  flex-direction:column;
+}
+.form-top{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:26px}
+.form-top h3{margin:0;font-size:23px;letter-spacing:-.03em}
+.form-step-label{font-size:11px;font-weight:900;color:#756c89;text-transform:uppercase;letter-spacing:.08em}
+.form-progress{display:flex;gap:6px}
+.form-progress span{width:34px;height:5px;border-radius:999px;background:#ebe7f3}
+.form-progress span.active{background:#715cff}
+.form-step{display:none}
+.form-step.active{display:block}
+.field{margin-bottom:17px}
+.field label{display:block;font-size:12px;font-weight:850;margin-bottom:7px;color:#3e3552}
+.field small{display:block;font-size:10px;color:#8a8199;margin-top:5px}
+.field input,.field select,.field textarea{
+  width:100%;
+  border:1px solid #ddd7ea;
+  background:#fbfaff;
+  color:#1b1235;
+  padding:13px 14px;
+  border-radius:12px;
+  outline:none;
+  transition:.18s ease;
+  font:inherit;
+  font-size:14px;
+}
+.field textarea{min-height:92px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{
+  border-color:#8e7cff;
+  box-shadow:0 0 0 4px rgba(113,92,255,.11);
+  background:#fff;
+}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.choice{position:relative}
+.choice input{position:absolute;opacity:0;pointer-events:none}
+.choice label{
+  display:flex;align-items:center;gap:9px;
+  min-height:48px;padding:10px 12px;
+  border:1px solid #ddd7ea;border-radius:12px;
+  background:#fbfaff;cursor:pointer;
+  font-size:12px;font-weight:800;color:#433a56;
+  transition:.18s ease;
+}
+.choice label:before{
+  content:"";width:10px;height:10px;border-radius:50%;
+  border:2px solid #aaa0bb;flex:0 0 auto;
+}
+.choice input:checked+label{
+  border-color:#715cff;
+  background:#f1eeff;
+  color:#4e3bc2;
+  box-shadow:0 0 0 3px rgba(113,92,255,.08);
+}
+.choice input:checked+label:before{border-color:#715cff;background:#715cff;box-shadow:inset 0 0 0 2px #fff}
+.form-actions{display:flex;gap:9px;margin-top:22px}
+.form-actions .btn{flex:1;border-radius:12px}
+.form-next,.form-submit{background:#715cff;color:white;border-color:#715cff}
+.form-back{background:#f6f3fb;color:#493f5a;border-color:#e3ddea}
+.form-meta{
+  display:flex;justify-content:center;gap:12px;flex-wrap:wrap;
+  margin-top:14px;color:#81788f;font-size:10px
+}
+.form-meta span:before{content:"✓";color:#715cff;font-weight:900;margin-right:4px}
+.form-error{font-size:11px;color:#b42318;margin-top:-8px;margin-bottom:12px;display:none}
+.form-success{display:none;flex:1;align-items:center;justify-content:center;text-align:center;padding:25px}
+.form-success.show{display:flex}
+.success-icon{
+  width:64px;height:64px;border-radius:20px;
+  background:linear-gradient(135deg,#d8d1ff,#715cff);
+  color:white;display:grid;place-items:center;
+  margin:0 auto 18px;font-size:27px;font-weight:900
+}
+.form-success h3{font-size:28px;margin:0 0 10px;letter-spacing:-.04em}
+.form-success p{font-size:14px;color:#6f667e;max-width:380px;margin:0 auto}
 
 footer{padding:34px 0 50px;border-top:1px solid var(--line);color:#9d94ad;font-size:12px}
 .footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
@@ -239,7 +367,8 @@ footer{padding:34px 0 50px;border-top:1px solid var(--line);color:#9d94ad;font-s
   .app-window{transform:none}
   .metrics,.logo-row{grid-template-columns:repeat(2,1fr)}
   .personas{grid-template-columns:1fr}
-  .workflow,.compare,.quote-grid{grid-template-columns:1fr}
+  .workflow,.compare,.quote-grid,.demo-grid{grid-template-columns:1fr}
+  .demo-copy{min-height:auto}
 }
 @media(max-width:620px){
   .container{width:min(100% - 24px,1180px)}
@@ -253,8 +382,10 @@ footer{padding:34px 0 50px;border-top:1px solid var(--line);color:#9d94ad;font-s
   .metric{padding:18px}.metric b{font-size:29px}
   .logo-row{grid-template-columns:repeat(2,1fr)}
   .section{padding:72px 0}
-  .cta{padding:38px 24px}
-  .cta .actions{flex-direction:column}
+  .demo-shell{padding:10px}
+  .demo-copy{padding:36px 24px}
+  .form-card{padding:22px;min-height:auto}
+  .form-row,.choice-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -507,13 +638,137 @@ footer{padding:34px 0 50px;border-top:1px solid var(--line);color:#9d94ad;font-s
 
 <section class="cta-wrap" id="demo">
   <div class="container">
-    <div class="cta">
-      <div class="kicker" style="color:#4d3ab4">SEE IT ON YOUR OWN USE CASE</div>
-      <h2>Bring one client, founder or executive. Leave with a podcast list worth pitching.</h2>
-      <p>Make the demo feel like immediate value, not a sales trap. Show what PodPitch finds, drafts and tracks for a real profile.</p>
-      <div class="actions">
-        <a class="btn btn-dark" href="#">Book a free 15-min demo ↗</a>
-        <a class="btn btn-outline-dark" href="#product">See the workflow first →</a>
+    <div class="demo-shell">
+      <div class="demo-grid">
+        <div class="demo-copy">
+          <div class="kicker" style="color:#4d3ab4">A DEMO BUILT AROUND YOU</div>
+          <h2>See the podcasts you should actually be pitching.</h2>
+          <p>Give us one real profile or use case. In 15 minutes, we’ll show you how PodPitch can find relevant shows, personalize outreach, and keep follow-ups moving.</p>
+
+          <div class="demo-points">
+            <div class="demo-point"><i>1</i><span>We use your real company, client, founder or executive — not a canned sales deck.</span></div>
+            <div class="demo-point"><i>2</i><span>You see the search, match quality and personalized pitch workflow live.</span></div>
+            <div class="demo-point"><i>3</i><span>You leave knowing whether PodPitch can save your team meaningful outreach time.</span></div>
+          </div>
+
+          <div class="demo-note">
+            <strong>15 minutes.</strong>
+            <span>No prep. No pressure. Real use case.</span>
+          </div>
+        </div>
+
+        <div class="form-card" id="demoFormCard">
+          <form id="demoForm" novalidate>
+            <div class="form-top">
+              <div>
+                <div class="form-step-label" id="stepLabel">Step 1 of 2</div>
+                <h3 id="formTitle">Tell us who you are</h3>
+              </div>
+              <div class="form-progress"><span class="active"></span><span></span></div>
+            </div>
+
+            <div class="form-step active" data-step="1">
+              <div class="form-row">
+                <div class="field">
+                  <label for="firstName">First name</label>
+                  <input id="firstName" name="firstName" type="text" autocomplete="given-name" placeholder="Alex" required>
+                </div>
+                <div class="field">
+                  <label for="lastName">Last name</label>
+                  <input id="lastName" name="lastName" type="text" autocomplete="family-name" placeholder="Morgan" required>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="email">Work email</label>
+                <input id="email" name="email" type="email" autocomplete="email" placeholder="alex@company.com" required>
+                <small>We'll only use this to arrange your demo.</small>
+              </div>
+
+              <div class="field">
+                <label for="company">Company or agency</label>
+                <input id="company" name="company" type="text" autocomplete="organization" placeholder="Acme PR" required>
+              </div>
+
+              <div class="field">
+                <label for="profileUrl">Company, client or LinkedIn URL <span style="font-weight:600;color:#8c849a">(optional)</span></label>
+                <input id="profileUrl" name="profileUrl" type="url" placeholder="https://...">
+                <small>Give us something real and we can make the demo instantly more relevant.</small>
+              </div>
+
+              <div class="form-error" id="step1Error">Please complete your name, work email and company.</div>
+
+              <div class="form-actions">
+                <button type="button" class="btn form-next" id="nextStep">Continue →</button>
+              </div>
+
+              <div class="form-meta">
+                <span>15-minute demo</span><span>No credit card</span><span>Your real use case</span>
+              </div>
+            </div>
+
+            <div class="form-step" data-step="2">
+              <div class="field">
+                <label>Which best describes you?</label>
+                <div class="choice-grid">
+                  <div class="choice"><input type="radio" id="typeAgency" name="buyerType" value="PR agency" required><label for="typeAgency">PR agency</label></div>
+                  <div class="choice"><input type="radio" id="typeInhouse" name="buyerType" value="In-house comms"><label for="typeInhouse">In-house comms</label></div>
+                  <div class="choice"><input type="radio" id="typeFounder" name="buyerType" value="Founder"><label for="typeFounder">Founder / exec</label></div>
+                  <div class="choice"><input type="radio" id="typeOther" name="buyerType" value="Other"><label for="typeOther">Other</label></div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="field">
+                  <label for="profiles">How many profiles do you pitch?</label>
+                  <select id="profiles" name="profiles" required>
+                    <option value="">Select</option>
+                    <option>1</option>
+                    <option>2–5</option>
+                    <option>6–20</option>
+                    <option>21+</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="goal">Main goal</label>
+                  <select id="goal" name="goal" required>
+                    <option value="">Select</option>
+                    <option>Book more podcast appearances</option>
+                    <option>Scale client outreach</option>
+                    <option>Replace manual research</option>
+                    <option>Build founder / executive authority</option>
+                    <option>Improve outreach reply rates</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="context">What would make this demo useful? <span style="font-weight:600;color:#8c849a">(optional)</span></label>
+                <textarea id="context" name="context" placeholder="Example: We have 8 B2B clients and want to increase podcast bookings without adding another researcher."></textarea>
+              </div>
+
+              <div class="form-error" id="step2Error">Please choose your type, number of profiles and main goal.</div>
+
+              <div class="form-actions">
+                <button type="button" class="btn form-back" id="backStep">← Back</button>
+                <button type="submit" class="btn form-submit">Build my demo →</button>
+              </div>
+
+              <div class="form-meta">
+                <span>Fast qualification</span><span>Personalized demo</span><span>No generic pitch deck</span>
+              </div>
+            </div>
+          </form>
+
+          <div class="form-success" id="formSuccess">
+            <div>
+              <div class="success-icon">✓</div>
+              <h3>Your demo brief is ready.</h3>
+              <p>Perfect — this is the information PodPitch needs to make the conversation specific instead of generic. In production, this step would pass the lead into the CRM and calendar flow.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -532,6 +787,58 @@ const io = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')})
 },{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+const demoForm = document.getElementById('demoForm');
+const step1 = document.querySelector('.form-step[data-step="1"]');
+const step2 = document.querySelector('.form-step[data-step="2"]');
+const progress = document.querySelectorAll('.form-progress span');
+const stepLabel = document.getElementById('stepLabel');
+const formTitle = document.getElementById('formTitle');
+const step1Error = document.getElementById('step1Error');
+const step2Error = document.getElementById('step2Error');
+
+function validStep1(){
+  const first = document.getElementById('firstName');
+  const last = document.getElementById('lastName');
+  const email = document.getElementById('email');
+  const company = document.getElementById('company');
+  return first.value.trim() && last.value.trim() && company.value.trim() && email.validity.valid && email.value.trim();
+}
+
+document.getElementById('nextStep').addEventListener('click',()=>{
+  if(!validStep1()){
+    step1Error.style.display='block';
+    return;
+  }
+  step1Error.style.display='none';
+  step1.classList.remove('active');
+  step2.classList.add('active');
+  progress[1].classList.add('active');
+  stepLabel.textContent='Step 2 of 2';
+  formTitle.textContent='Make the demo useful';
+});
+
+document.getElementById('backStep').addEventListener('click',()=>{
+  step2.classList.remove('active');
+  step1.classList.add('active');
+  progress[1].classList.remove('active');
+  stepLabel.textContent='Step 1 of 2';
+  formTitle.textContent='Tell us who you are';
+});
+
+demoForm.addEventListener('submit',(e)=>{
+  e.preventDefault();
+  const buyer = demoForm.querySelector('input[name="buyerType"]:checked');
+  const profiles = document.getElementById('profiles').value;
+  const goal = document.getElementById('goal').value;
+  if(!buyer || !profiles || !goal){
+    step2Error.style.display='block';
+    return;
+  }
+  step2Error.style.display='none';
+  demoForm.style.display='none';
+  document.getElementById('formSuccess').classList.add('show');
+});
 </script>
 </body>
 </html>
