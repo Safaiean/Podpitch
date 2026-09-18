@@ -361,6 +361,106 @@ footer{padding:34px 0 50px;border-top:1px solid var(--line);color:#9d94ad;font-s
 .reveal{opacity:0;transform:translateY(18px);transition:.7s ease}
 .reveal.show{opacity:1;transform:none}
 
+
+/* --- Light brand system + premium gradients --- */
+body{overflow-x:hidden}
+.section{position:relative}
+.white-gradient{
+  background:
+    radial-gradient(800px 360px at 12% 0%,rgba(113,92,255,.08),transparent 58%),
+    linear-gradient(180deg,#ffffff 0%,#fbfaff 100%) !important;
+  color:#1b1235;
+}
+.lavender-gradient{
+  background:
+    radial-gradient(900px 420px at 88% 12%,rgba(113,92,255,.12),transparent 56%),
+    linear-gradient(180deg,#faf8ff 0%,#f0ecff 100%) !important;
+  color:#1b1235;
+}
+.trust{
+  padding:38px 0 72px;
+  background:
+    radial-gradient(700px 300px at 50% 0%,rgba(113,92,255,.10),transparent 60%),
+    linear-gradient(180deg,#ffffff 0%,#f8f5ff 100%);
+  color:#1b1235;
+}
+.trust-label{color:#7d7390}
+.logo-pill{
+  color:#544a68;
+  border-color:#e6e0ef;
+  background:rgba(255,255,255,.86);
+  box-shadow:0 8px 28px rgba(46,31,92,.05);
+}
+.light .lead{color:#6f667d}
+.light .metric{
+  background:rgba(255,255,255,.88);
+  border-color:#e8e2f1;
+  box-shadow:0 14px 42px rgba(47,30,99,.07);
+}
+.light .metric b{color:#715cff}
+.light .metric span{color:#4a415a}
+.light .metric small{color:#8b8298}
+.light .workflow-card{
+  background:rgba(255,255,255,.82);
+  border-color:#e6e0ef;
+  box-shadow:0 18px 55px rgba(48,31,101,.07);
+}
+.light .workflow-card p{color:#70677e}
+.light .num{color:#715cff}
+.light .mini-ui{background:#faf8ff;border:1px solid #ebe5f3}
+.light .quote-main,.light .quote-side{
+  background:rgba(255,255,255,.88);
+  border-color:#e7e1ef;
+  color:#1b1235;
+  box-shadow:0 18px 55px rgba(48,31,101,.07);
+}
+.light .quote-side .big{color:#715cff}
+.light .quote-side p{color:#766d84 !important}
+.light .quote-side>div:last-child{color:#6d647b !important;border-color:#e8e1f0 !important}
+.light .person span{color:#81778f}
+.social-proof-section{padding-bottom:120px}
+.persona{
+  border-color:#e9e3f0;
+  box-shadow:0 16px 50px rgba(47,30,99,.07);
+}
+.persona:hover,.metric:hover,.workflow-card:hover{
+  transform:translateY(-4px);
+  transition:transform .22s ease,box-shadow .22s ease;
+  box-shadow:0 22px 60px rgba(47,30,99,.11);
+}
+
+/* Mobile navigation */
+.mobile-nav{
+  display:none;
+  position:absolute;
+  left:12px;right:12px;top:76px;
+  padding:10px;
+  border-radius:18px;
+  background:rgba(25,16,47,.98);
+  border:1px solid rgba(255,255,255,.10);
+  box-shadow:0 24px 60px rgba(0,0,0,.28);
+  backdrop-filter:blur(18px);
+}
+.mobile-nav.open{display:grid}
+.mobile-nav a{
+  padding:13px 14px;
+  border-radius:11px;
+  color:#eeeaff;
+  font-size:14px;
+  font-weight:750;
+}
+.mobile-nav a:hover{background:rgba(255,255,255,.06)}
+.mobile-nav .mobile-nav-cta{
+  margin-top:5px;
+  color:#150d2d;
+  background:linear-gradient(135deg,#b8adff,#eeeaff);
+  text-align:center;
+}
+
+/* Better touch and form behavior */
+.btn,.choice label,.mobile-menu{-webkit-tap-highlight-color:transparent}
+.field input,.field select,.field textarea{min-height:48px}
+
 @media(max-width:960px){
   .nav-links{display:none}.mobile-menu{display:block}.nav-actions .btn-ghost{display:none}
   .hero-grid{grid-template-columns:1fr;gap:44px}
@@ -387,6 +487,105 @@ footer{padding:34px 0 50px;border-top:1px solid var(--line);color:#9d94ad;font-s
   .form-card{padding:22px;min-height:auto}
   .form-row,.choice-grid{grid-template-columns:1fr}
 }
+
+@media(max-width:960px){
+  .nav-inner{height:68px}
+  .mobile-nav{top:68px}
+  .mobile-menu{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.06);cursor:pointer}
+  .nav-actions>.btn-primary{display:none}
+  .hero{padding:64px 0 48px}
+  .hero-grid{gap:36px}
+  .hero-grid>div:first-child{max-width:720px}
+  h1{font-size:clamp(48px,9vw,72px);max-width:760px}
+  .app-window{max-width:760px;margin:0 auto;width:100%}
+  .section{padding:82px 0}
+  .demo-grid{gap:12px}
+  .demo-copy{padding:44px 34px}
+}
+@media(max-width:700px){
+  .container{width:calc(100% - 28px)}
+  .nav-inner{gap:10px}
+  .brand{font-size:20px}
+  .logo-mark{width:32px;height:32px}
+  .hero{padding:46px 0 38px}
+  h1{font-size:clamp(42px,12.5vw,58px);line-height:.98;letter-spacing:-.055em}
+  .hero-copy{font-size:16px;line-height:1.62}
+  .eyebrow{font-size:11px;line-height:1.25}
+  .hero-actions{display:grid;grid-template-columns:1fr}
+  .hero-actions .btn{width:100%;min-height:50px}
+  .hero-proof{align-items:flex-start;flex-direction:column;gap:10px}
+  .app-window{padding:7px;border-radius:20px}
+  .app{border-radius:15px;min-height:auto}
+  .app-top{height:auto;min-height:54px;padding:10px;gap:8px;flex-wrap:wrap}
+  .app-top strong{font-size:11px !important}
+  .search{order:3;width:100%;margin-left:0;padding:9px 10px}
+  .app-body{min-height:auto}
+  .main{padding:13px}
+  .topline{align-items:flex-start;gap:8px}
+  .title-sm{font-size:14px}
+  .flow{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+  .step{padding:9px}
+  .step b{font-size:15px}
+  .podcast-card{grid-template-columns:38px minmax(0,1fr) auto;padding:9px;gap:8px}
+  .cover{width:38px;height:38px}
+  .pc-title{font-size:10px}.pc-sub{font-size:8px}
+  .composer{padding:11px;padding-bottom:45px}
+  .composer .send{left:10px;right:10px;text-align:center}
+  .trust{padding:32px 0 50px}
+  .logo-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .logo-pill{height:54px;font-size:11px}
+  .section{padding:62px 0}
+  .section h2{font-size:clamp(36px,10vw,48px);line-height:1.04}
+  .lead{font-size:16px;line-height:1.6}
+  .metrics{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .metric{padding:18px;min-width:0}
+  .metric b{font-size:31px}
+  .metric span{font-size:12px}
+  .personas{gap:12px}
+  .persona{min-height:auto;padding:22px}
+  .persona .icon{margin-bottom:22px}
+  .workflow{gap:12px;margin-top:26px}
+  .workflow-card{padding:22px;min-height:auto;border-radius:20px}
+  .workflow-card h3{font-size:24px}
+  .compare{gap:12px}
+  .compare-card{padding:22px}
+  .quote-grid{gap:12px}
+  .quote-main,.quote-side{padding:22px}
+  .quote-main blockquote{font-size:21px}
+  .quote-side .big{font-size:52px}
+  .social-proof-section{padding-bottom:76px}
+  .cta-wrap{padding:0 0 72px}
+  .demo-shell{border-radius:24px;padding:8px}
+  .demo-copy{padding:32px 20px 26px}
+  .demo-copy h2{font-size:clamp(38px,10vw,48px)}
+  .demo-copy>p{font-size:16px}
+  .demo-point{font-size:13px}
+  .demo-note{align-items:flex-start;flex-direction:column;gap:3px;margin-top:26px;padding-top:18px}
+  .form-card{border-radius:18px;padding:20px;min-height:auto}
+  .form-top{align-items:flex-start;margin-bottom:22px}
+  .form-top h3{font-size:21px}
+  .field input,.field select,.field textarea{font-size:16px}
+  .form-row{grid-template-columns:1fr}
+  .choice-grid{grid-template-columns:1fr 1fr}
+  .form-actions{position:sticky;bottom:8px;background:rgba(255,255,255,.94);padding-top:8px;z-index:3}
+  .form-meta{gap:7px;font-size:9px}
+  footer{padding:28px 0 38px}
+  .footer-row{flex-direction:column}
+}
+@media(max-width:460px){
+  .container{width:calc(100% - 22px)}
+  h1{font-size:41px}
+  .metrics{grid-template-columns:1fr}
+  .choice-grid{grid-template-columns:1fr}
+  .podcast-card{grid-template-columns:36px minmax(0,1fr)}
+  .podcast-card .match{grid-column:2;justify-self:start}
+  .form-actions{flex-direction:column-reverse}
+  .form-actions .btn{width:100%}
+  .demo-shell{padding:6px}
+  .demo-copy{padding:28px 17px 22px}
+  .form-card{padding:17px}
+}
+
 </style>
 </head>
 <body>
@@ -402,8 +601,15 @@ footer{padding:34px 0 50px;border-top:1px solid var(--line);color:#9d94ad;font-s
     <div class="nav-actions">
       <a class="btn btn-ghost" href="#product">See product</a>
       <a class="btn btn-primary" href="#demo">Book a 15-min demo ↗</a>
-      <button class="mobile-menu" aria-label="Open menu">☰</button>
+      <button class="mobile-menu" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
     </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#product">Product</a>
+    <a href="#for-who">Who it’s for</a>
+    <a href="#results">Results</a>
+    <a href="#how">How it works</a>
+    <a class="mobile-nav-cta" href="#demo">Book a 15-min demo ↗</a>
   </div>
 </nav>
 
@@ -492,7 +698,7 @@ footer{padding:34px 0 50px;border-top:1px solid var(--line);color:#9d94ad;font-s
   </div>
 </section>
 
-<section class="section" id="results">
+<section class="section light white-gradient" id="results">
   <div class="container">
     <div class="kicker">Proof before features</div>
     <h2>Less busywork. More replies. More bookings.</h2>
@@ -534,7 +740,7 @@ footer{padding:34px 0 50px;border-top:1px solid var(--line);color:#9d94ad;font-s
   </div>
 </section>
 
-<section class="section" id="how">
+<section class="section light lavender-gradient" id="how">
   <div class="container">
     <div class="kicker">The product story</div>
     <h2>From “who should I pitch?” to “we got a yes.”</h2>
@@ -615,7 +821,7 @@ footer{padding:34px 0 50px;border-top:1px solid var(--line);color:#9d94ad;font-s
   </div>
 </section>
 
-<section class="section">
+<section class="section light white-gradient social-proof-section">
   <div class="container">
     <div class="kicker">Social proof</div>
     <h2>Show the result. Then let customers explain the relief.</h2>
@@ -786,7 +992,31 @@ footer{padding:34px 0 50px;border-top:1px solid var(--line);color:#9d94ad;font-s
 const io = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')})
 },{threshold:.12});
+
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileNav = document.getElementById('mobileNav');
+if(mobileMenuBtn && mobileNav){
+  mobileMenuBtn.addEventListener('click',()=>{
+    const open = mobileNav.classList.toggle('open');
+    mobileMenuBtn.setAttribute('aria-expanded',open ? 'true' : 'false');
+    mobileMenuBtn.textContent = open ? '×' : '☰';
+  });
+  mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    mobileNav.classList.remove('open');
+    mobileMenuBtn.setAttribute('aria-expanded','false');
+    mobileMenuBtn.textContent='☰';
+  }));
+  window.addEventListener('resize',()=>{
+    if(window.innerWidth>960){
+      mobileNav.classList.remove('open');
+      mobileMenuBtn.setAttribute('aria-expanded','false');
+      mobileMenuBtn.textContent='☰';
+    }
+  });
+}
+
 
 const demoForm = document.getElementById('demoForm');
 const step1 = document.querySelector('.form-step[data-step="1"]');
